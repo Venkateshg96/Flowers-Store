@@ -1,0 +1,37 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+  
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 col-sm-8">
+        <div class="card mt-5">
+          <div class="card-header text-center">
+            <h2>Admin Login</h2>
+          </div>
+          <div class="card-body">
+            <form #loginForm="ngForm" (ngSubmit)="adminLogin(loginForm)">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" class="form-control"  name="username"
+                [(ngModel)]="credentials.username" placeholder="Enter your username" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password"
+                [(ngModel)]="credentials.password" class="form-control" placeholder="Enter your password" required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.form.valid" >Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+

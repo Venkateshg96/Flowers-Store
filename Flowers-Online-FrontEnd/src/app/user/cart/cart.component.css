@@ -1,0 +1,23 @@
+.card-body {
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.space-between {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust this value to control the space between elements */
+}
+
+/* Optional: Add margin to the buttons for extra spacing */
+.space-between button {
+    margin-right: 10px; /* Adjust this value for the desired space */
+}
+
+
+
+
+
+
+  

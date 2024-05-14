@@ -1,0 +1,74 @@
+
+  <!-- Link Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+<body>
+
+    <div class="container mt-4" *ngFor="let order of productList">
+        <h1>Order Details - Order #{{ order.id}}</h1>
+      
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <h3>Order Summary</h3>
+            <p><strong>Order Number:</strong> #{{ order.id}}</p>
+            <p><strong>Order Date:</strong> {{ order.orderDate | date }}</p>
+            <p><strong>Shipping Address:</strong><br>
+              {{ order.billingAddress.lastName}}  {{ order.billingAddress.firstName}} ,<br>
+              {{ order.billingAddress.addressLine1}}<br>
+              {{ order.billingAddress.addressLine2}}<br>
+              {{ order.billingAddress.landmark}}<br>
+              {{ order.billingAddress.state}}&nbsp; {{ order.billingAddress.country}} &nbsp;{{ order.billingAddress.pincode}}</p>
+            <p><strong>Payment Method:</strong> Visa ending in ****1234</p>
+          </div>
+      
+          <div class="col-md-6">
+            <h3>Order Total</h3>
+            <p><strong>Subtotal:</strong> {{order.totalCost | currency:"INR"}}</p>
+            <p><strong>Shipping:</strong> {{00.00| currency:"INR"}}</p>
+            <p><strong>Tax:</strong> {{00.00| currency:"INR"}}</p>
+            <p class="h4"><strong>Total: {{ order.totalCost | currency:"INR"}}</strong></p>
+          </div>
+        </div>
+      
+        <div class="row mt-4" *ngFor="let orderItem of order.products">
+          <div class="col-md-12">
+            <h3>Order Items</h3>
+            <div class="row">
+              <div class="col-md-3">
+                <img src="{{orderItem.imageUrl}}" alt="Product 1" class="img-fluid">
+              </div>
+              <div class="col-md-9">
+                <p><strong>{{orderItem.productName}}</strong></p>
+                <p>Quantity: {{orderItem.quantity}}</p>
+                <p>Unit Price: {{orderItem.price | currency:"INR"}}</p>
+                <p>Subtotal: {{orderItem.price*orderItem.quantity | currency:"INR"}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <h3>Shipping Details</h3>
+            <p><strong>Shipping Method:</strong> Standard Shipping</p>
+            <p><strong>Estimated Delivery:</strong> August 28, 2023</p>
+
+          </div>
+      
+        </div>
+      
+        
+      </div>
+
+
+
+</body>
+
+
+
+
+<!-- Link Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

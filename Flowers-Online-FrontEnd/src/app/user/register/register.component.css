@@ -1,0 +1,70 @@
+.card-img-left {
+    width: 45%;
+    /* Link to your background image using in the property below! */
+    background: scroll center url('https://images.unsplash.com/photo-1530092285049-1c42085fd395?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80');
+    background-size: cover;
+  }
+  
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+  }
+
+
+
+
+
+
+
+  /* Reset default margin and padding for better layout control */
+body, h1, h2, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply some basic styling to the checkbox and label */
+.tacbox {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+#checkbox {
+  margin-right: 10px;
+  appearance: none; /* Hide default checkbox appearance */
+  border: 2px solid #ccc;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#checkbox:checked {
+  background-color: #2196F3;
+  border-color: #2196F3;
+}
+
+#checkbox:checked::before {
+  content: '\2713'; /* Unicode checkmark character */
+  color: white;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  display: block;
+}
+
+label {
+  cursor: pointer;
+}
+
+a {
+  color: #2196F3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

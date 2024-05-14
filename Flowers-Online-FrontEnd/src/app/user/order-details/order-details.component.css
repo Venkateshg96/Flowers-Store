@@ -1,0 +1,35 @@
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  .order-title {
+    color: #333333;
+    margin-bottom: 20px;
+  }
+  .order-section {
+    margin-top: 30px;
+  }
+  .product-image {
+    max-width: 100%;
+    height: auto;
+  }
+  .product-name {
+    font-weight: bold;
+  }
+  .item-subtotal {
+    color: #333;
+  }
+  .shipping-details {
+    margin-top: 20px;
+  }
+  .shipping-label {
+    font-weight: bold;
+  }

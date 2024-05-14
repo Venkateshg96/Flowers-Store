@@ -1,0 +1,75 @@
+<!-- sales-reports.component.html -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-center align-items-center">
+        <div class="card">
+          <div class="card-header">
+            <h2>Sales Insights</h2>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="insightsOptions">Select an Insight:</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio"  name="insightsOptions" id="locationInsight" (click)="inventoryDeatils()" value="location">
+                <label class="form-check-label" for="locationInsight">
+                  Inventory Details
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio"  name="insightsOptions" id="ordersInsight" (click)="graphForSales()" value="orders">
+                <label class="form-check-label" for="ordersInsight">
+                    Graph of date vs sales
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ... Other content ... -->
+    </div>
+  </div>
+  
+
+
+
+
+
+   <!-- Customers -->
+   <body *ngIf="inventory">
+    <div class="container">
+      <h1 class="text-center mb-4">Inventory Information</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered custom-table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Product Id</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Product Cost</th>
+              <th scope="col">Product Quantity</th>
+            </tr>
+          </thead>
+          <tbody  *ngFor="let p of products">
+            <tr>
+              <td>{{p.id}}</td>
+              <td>{{p.productName}}</td>
+              <td>{{p.price}}</td>
+              <td>{{p.quantity}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+
+
+
+
+
+
+<div *ngIf="salesGraph">
+  <div id="divChart" >
+    <canvas id="myChart"></canvas>
+  </div>
+
+</div>

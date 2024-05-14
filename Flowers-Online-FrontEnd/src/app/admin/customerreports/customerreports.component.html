@@ -1,0 +1,108 @@
+<!-- sales-reports.component.html -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-center align-items-center">
+        <div class="card">
+          <div class="card-header">
+            <h2>Sales Insights</h2>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="insightsOptions">Select an Insight:</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" (click)="getAllCustomers()" name="insightsOptions" id="locationInsight" value="location">
+                <label class="form-check-label" for="locationInsight">
+                  Customers across Locations
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" (click)="getAllOrdeders()" name="insightsOptions" id="ordersInsight" value="orders">
+                <label class="form-check-label" for="ordersInsight">
+                  Customer Orders
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ... Other content ... -->
+    </div>
+  </div>
+  
+
+
+
+ <!-- Customers -->
+  <body *ngIf="customer">
+    <div class="container">
+      <h1 class="text-center mb-4">Customer Information</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered custom-table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Customer Name</th>
+              <th scope="col">City</th>
+              <th scope="col">Country</th>
+              <th scope="col">Email</th>
+              <th scope="col">Mobile</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let customer of customers">
+            <tr>
+              <td>{{customer.lastName + ' ' + customer.firstName}}</td>
+              <td>{{customer.city}}</td>
+              <td>{{customer.country}}</td>
+              <td>{{customer.email}}</td>
+              <td>{{customer.mobileNumber}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="text-center mt-4">
+        <button (click)="exportTable()" class="btn btn-primary mr-2">Export as PDF</button>
+      </div>
+    </div>
+  </body>
+
+ 
+
+
+
+
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+
+<body *ngIf="order">
+  <div class="container">
+    <h1 class="text-center mt-4">Customer Order Details</h1>
+    <div class="row">
+      <div class="col-md-6" *ngFor="let customerOrders of allOrders">
+        <div class="card mt-4">
+          <div class="card-header">
+            <h2>Order ID: {{customerOrders.id}}</h2>
+          </div>
+          <div class="card-body">
+            <h4>Customer: {{customerOrders.billingAddress.lastName + ' ' +customerOrders.billingAddress.firstName}}</h4>
+            <h4>Email: {{customerOrders.email}}</h4>
+            <h4>Shipping Address: {{customerOrders.billingAddress.addressLine1 +', '+customerOrders.billingAddress.addressLine2+
+                ', '+customerOrders.billingAddress.landmark+
+                ', '+customerOrders.billingAddress.state+
+                ', '+customerOrders.billingAddress.pincode}}</h4>
+               
+            
+            <h4>Total Amount: {{customerOrders.totalCost | currency:'INR'}}</h4>
+            <h4>Payment Status: Paid</h4>
+            <h4>Products:</h4>
+            <ul class="list-group" *ngFor="let p of customerOrders.products">
+                <li class="list-group-item">Product Name: {{p.productName}} - Quantity: {{p.quantity}} - Price: {{p.price | currency:'INR'}} each</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+</body>
+

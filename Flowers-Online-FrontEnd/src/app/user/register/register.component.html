@@ -1,0 +1,170 @@
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-xl-9 mx-auto">
+        <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
+          <div class="card-img-left d-none d-md-flex">
+            <!-- Background image for card set in CSS! -->
+          </div>
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-5 fw-light fs-5">Register</h5>
+            <p class="text-center text-danger">{{message}} </p>
+            <form class="register-form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+
+              <div class="form-floating mb-3" class="form-group">
+                <!-- delhi-->
+                <select id="title"  name="title" formControlName="title" class="form-select" >
+                  <option value="" selected disabled hidden>Select title</option>
+                  <!-- <option value="">Select title</option> -->
+                  <option value="Mr."> Mr.</option>
+                  <option value="Mrs."> Mrs.</option>
+                  <option value="Miss"> Miss</option>
+                  <option value="Ms."> Ms.</option>
+                  <option value="Dr."> Dr.</option>
+                </select>
+
+              </div>
+
+
+              <div class="form-floating mb-3" class="form-group">
+                <input type="text" class="form-control" formControlName="firstname" id="firstName"
+                  placeholder="First Name" required minlength="5" maxlength="10">
+                <small class="card-title text-center text-danger"
+                  *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.invalid">First Name is
+                  mandatory</small>
+
+              </div>
+
+              <div class="form-floating mb-3" class="form-group">
+                <input type="text" class="form-control" formControlName="lastname" id="lastname" placeholder="Last Name"
+                  required minlength="3" maxlength="10">
+                <small class="card-title text-center text-danger"
+                  *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.invalid">Last Name is
+                  mandatory</small>
+              </div>
+
+              <div class="form-floating mb-3" class="form-group">
+                <input type="email" class="form-control" formControlName="email" name="email" id="email"
+                  placeholder="name@example.com" required pattern='[a-z0-9]+@[a-z]+\.[a-z]{2,3}'>
+                <small class="card-title text-center text-danger"
+                  *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">Email Id is
+                  mandatory</small>
+
+              </div>
+
+
+
+              <div class="form-floating mb-3" class="form-group">
+                <input type="password" class="form-control" formControlName="password" name="password" id="password"
+                  placeholder="Password" required>
+                <small class="card-title text-center text-danger"
+                  *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">Password is
+                  mandatory</small>
+
+              </div>
+
+              <div class="form-floating mb-3" class="form-group">
+                <input type="mobilenumber" class="form-control" formControlName="mobilenumber" name="mobilenumber" id="mobilenumber"
+                  placeholder="123467890">
+                <small class="card-title text-center text-danger"
+                  *ngIf="registerForm.get('mobilenumber')?.touched && registerForm.get('mobilenumber')?.invalid">Mobile Number is
+                  mandatory</small>
+
+              </div>
+
+
+              <div class="form-floating mb-3" class="form-group">
+                
+                <!-- delhi-->
+                <select id="country" name="country" formControlName="country" class="form-select">
+                  <option value="" selected disabled hidden>Select Country</option>
+                  <!-- <option value="">Select Country</option> -->
+                  <option value="Afghanistan">Afghanistan</option>
+                  <option value="Albania">Albania</option>
+                  <option value="Algeria">Algeria</option>
+                  <option value="American Samoa">American Samoa</option>
+                  <option value="Andorra">Andorra</option>
+                  <option value="Angola">Angola</option>
+                  <option value="Chile">Chile</option>
+                  <option value="China">China</option>
+                  <option value="Christmas Island">Christmas Island</option>
+                  <option value="Dominican Republic">Dominican Republic</option>
+                  <option value="East Timor">East Timor</option>
+                  <option value="Honduras">Honduras</option>
+                  <option value="Hong Kong">Hong Kong</option>
+                  <option value="Hungary">Hungary</option>
+                  <option value="Iceland">Iceland</option>
+                  <option value="India">India</option>
+                  <option value="Indonesia">Indonesia</option>
+                  <option value="Iran">Iran (Islamic Republic of)</option>
+                  <option value="Iraq">Iraq</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="Israel">Israel</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Jamaica">Jamaica</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Luxembourg">Luxembourg</option>
+                  <option value="Macau">Macau</option>
+                  <option value="Niger">Niger</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="Niue">Niue</option>
+                  <option value="Rwanda">Rwanda</option>
+                  <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                  <option value="Saint LUCIA">Saint LUCIA</option>
+                  <option value="Saint Vincent">Saint Vincent and the Grenadines</option>
+                  <option value="Samoa">Samoa</option>
+                 
+                  
+                </select>
+
+              </div>
+
+
+
+              <div class="form-floating mb-3" class="form-group">
+                <!-- delhi-->
+
+                <select id="city" name="city"  formControlName="city" class="form-select">
+                  <option value="">Select City</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Bangalore">Bangalore</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Kolkata">Kolkata</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Ahmedabad">Ahmedabad</option>
+                  <option value="Jaipur">Jaipur</option>
+                  <option value="Lucknow">Lucknow</option>
+                </select>
+
+              </div>
+
+
+
+
+              <div class="tacbox">
+                <input id="checkbox" type="checkbox"  />
+                <label for="checkbox">I agree to these <a href="#">Terms and Conditions</a>.</label>
+              </div>
+
+              <div class="d-grid mb-2 col-md-12 text-center">
+                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit" [disabled]="registerForm.invalid">Register</button>
+              </div>
+
+              <a class="d-block text-center mt-2 small" href="login">Have an account? Sign In</a>
+
+              <hr class="my-4">
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

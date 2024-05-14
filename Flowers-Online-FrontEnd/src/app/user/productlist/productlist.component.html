@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="container">
+    <div class="container">
+      <div class="bg-white rounded d-flex align-items-center justify-content-between" id="header"> <button
+          class="btn btn-hide text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#filterbar"
+          aria-expanded="false" aria-controls="filterbar" id="filter-btn"> <span></span> <span id="btn-txt"></span>
+        </button>
+        <nav class="navbar navbar-expand-lg navbar-light pl-lg-0 pl-auto"> <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#mynav" aria-controls="mynav" aria-expanded="false"
+            aria-label="Toggle navigation" id="icon"> <span class="navbar-toggler-icon"></span> </button>
+          <div class="collapse navbar-collapse" id="mynav">
+            <ul class="navbar-nav d-lg-flex align-items-lg-center">
+              <li class="nav-item active"> <select name="sort-by" id="sort-by" (change)="sort($event)">
+                  <option value="" selected disabled hidden>Sort By</option>
+                  <option value="Name">Name</option>
+                  <option value="Low">Show Low to High Price</option>
+                  <option value="High">Show High to Low Price</option>
+                  <option value="New">New to Old</option>
+                  <option value="Old">Old to New</option>
+                </select> </li>
+              <li class="nav-item d-lg-none d-inline-flex"> </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="ml-auto mt-3 mr-2">
+          <nav aria-label="Page navigation example">
+
+          </nav>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+      <ng-container *ngFor="
+            let pList of productList
+              | paginate
+                : {
+                    itemsPerPage: 9,
+                    currentPage: pagination,
+                    totalItems: allProductList
+                  }">
+        <div class="card col-md-3">
+          <a [routerLink]="['/shop/product/', pList.category, pList.id]">
+            <img src="{{pList.imageUrl}}" alt="Product Image" style="width:100%">
+          </a>
+          <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+            {{pList.productName}}</h5>
+          <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+            {{pList.description}}</p>
+          <p><strong>Price:</strong> {{ pList.price | currency:"INR"}}</p>
+          <button class="btn btn-primary" [routerLink]="['/shop/products/all']" (click)="addToCart(pList.id,pList.category)"
+            *ngIf="categoryName=='all'">Add to cart</button>
+          <button class="btn btn-primary" [routerLink]="['/shop/products/', pList.category]"
+            (click)="addToCart(pList.id,pList.category)" *ngIf="categoryName!='all'">Add to cart</button>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <pagination-controls (pageChange)="renderPage($event)"></pagination-controls>
+  </div>
+  <!-- Product Card List Ending-->

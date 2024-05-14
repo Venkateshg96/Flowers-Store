@@ -1,0 +1,5 @@
+
+<app-header *ngIf="!isInAdminPage"></app-header>
+<app-admin-header *ngIf="isInAdminPage"></app-admin-header>
+
+<router-outlet></router-outlet>

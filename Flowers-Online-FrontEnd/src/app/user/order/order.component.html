@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Order History</h1>
+  <div class="row">
+    <div class="col-md-6 mb-4" *ngFor="let order of productList[0]">
+      <div class="card border border-dark">
+        <div class="card-header">
+          Order #{{ order.id}}
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 mb-4" *ngFor="let product of order.products">
+              <div class="card">
+                <a [routerLink]="['/shop/orderDetails/', order.id]">
+                  <img [src]="product.imageUrl" class="card-img-top" alt="Product Image">
+                </a>
+
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.productName }}</h5>
+                  <p class="card-text">Price: {{ product.price | currency:"INR"}}</p>
+                  <p class="card-text">Date: {{ product.date | date }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
