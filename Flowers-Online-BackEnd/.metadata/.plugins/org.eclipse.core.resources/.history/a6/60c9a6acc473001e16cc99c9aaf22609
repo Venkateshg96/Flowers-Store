@@ -1,0 +1,21 @@
+package com.wipro.config;
+
+public class SpringFoxConfig {
+
+	@Bean
+    public GroupedOpenApi publicApi() {
+        return GroupedOpenApi.builder()
+                .group("reservation")
+                .packagesToScan("com.springcloud.reservationservice.controller")
+                .build();
+    }
+
+    @Bean
+    public OpenAPI springShopOpenAPI() {
+        return new OpenAPI()
+                .info(new Info().title("cloud API")
+                        .description("cloud API")
+                        .version("1.0")
+                        .license(new License().name("Apache 2.0").url("http://springdoc.org")));
+    }
+}
